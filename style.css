@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    opacity: 0;
+    transition: opacity 3s;
+    background-color: rgb(69, 86, 102); /* For browsers that do not support gradients */
+    background-image: linear-gradient(180.2deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    color: white;
+
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;  
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    margin-top: 70px;
+}
+
+.main .men {
+    width: 500px;
+    transition: all 1000ms ease;
+    cursor: pointer;
+    background-color: #353535;
+    background-image: linear-gradient(180deg, #353535 0%, #d7d7d7 54%);
+    ;
+    border-radius: 50%;
+}
+
+.main .men:hover{
+    transform: scale(1.3);
+}
+
+.main .main-detil {
+    text-align: center;
+    color: white;
+}
+
+.main .main-detil h1 {
+    font-size: 50px;
+
+}
+
+.main .main-detil h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.main .btn button {
+    padding: 8px 20px;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #1E90FF;
+    margin-right: 1rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+    color: #1E90FF;
+}
+
+.main .btn button:hover {
+    background: white;
+    border: 1px solid #1E90FF;
+    transform: scale(1.1);
+    transition: all 500ms ease-in-out;
+    color: #1E90FF;
+}
+
+.main .btn .btn-2 {
+    padding: 8px 30px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    outline: none;
+
+}
+
+.main .btn .btn-2:hover {
+    background: #1E90FF;
+    transform: scale(1.1);
+    border: none;
+    color: #fff;
+}
+
+.apps {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+.apps i {
+    font-size: 400px;
+
+    cursor: pointer;
+}
+.apps h1 {
+
+    cursor: pointer;
+    text-align: center;
+}
+.apps .icon:hover {
+    color: #1E90FF;
+    transform: scale(1.5);
+    transition: all 600ms ease-in-out;
+}
+
+.social i {
+    color: #1E90FF;
+    font-size: 40px;
+    margin: 0px 14px;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+}
+
+.social i:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.content {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 20px;
+    padding-inline: 10%;
+}
+
+.images {
+    width: 40%;
+}
