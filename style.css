@@ -107,11 +107,24 @@ body {
     cursor: pointer;
     text-align: center;
 }
-.apps .icon:hover {
+
+.apps .active {
+    color: #fff;
+    text-decoration: none;
+}
+
+.apps .active:hover {
     color: #1E90FF;
     transform: scale(1.5);
     transition: all 600ms ease-in-out;
 }
+
+.apps .icon .active:hover {
+    color: #1E90FF;
+    transform: scale(1.5);
+    transition: all 600ms ease-in-out;
+}
+
 
 .social i {
     color: #1E90FF;
@@ -138,3 +151,6 @@ body {
 .images {
     width: 40%;
 }
+
+
+

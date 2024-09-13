@@ -1,0 +1,128 @@
+<!--
+This Sudoku game is licensed under the MIT license:
+
+Copyright (c) 2015 Jonas Ohlsson Aden (jonassebastianohlsson.com)
+Modified work copyright (c) 2019 Nicolai Jaeger (McZak.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="sudoku.css">
+    <!-- Components -->
+    <script src="components/navbar.js" type="text/javascript" defer></script>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="sudoku.js"></script>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+    
+<body>
+    <nav-bar></nav-bar>
+    <div class="wrap">
+    
+        <!--show candidates toggle-->
+        <div class="options">
+            <div class="candidates">
+                <label for="toggleCandidates">Show candidates:</label>
+                <div class="checkbox-wrapper-3">
+                    <input type="checkbox" class="js-candidate-toggle" id="cbx-3" />
+                    <label for="cbx-3" class="toggle"><span></span></label>
+                </div>
+            </div>
+            
+            <div>
+                <button type="button" class="sudokubutton1 js-generate-board-btn--easy" role="button">Easy</button>
+                <button type="button" class="sudokubutton2 js-generate-board-btn--medium">Medium</button>
+                <button type="button" class="sudokubutton3 js-generate-board-btn--hard">Hard</button>
+                <button type="button" class="sudokubutton4 js-generate-board-btn--very-hard">Extreme</button>
+            
+            </div>
+        </div>
+        
+        <!--generate board buttons-->
+        
+        
+        <!--the only required html-->
+        <div id="sudoku" class="sudoku-board">
+        </div>
+        
+        <!--solve buttons-->
+        Solve: <button type="button" class="sudokubutton5 js-solve-step-btn">One Step</button>
+        <button type="button" class="sudokubutton6 js-solve-all-btn">All</button>
+        <br>
+        <!--clear board btn-->
+        Clear: <button type="button" class="sudokubutton7 js-clear-board-btn">Board</button>
+        </div>
+        
+        <script>
+            var $candidateToggle = $(".js-candidate-toggle"),
+            $generateBoardBtnEasy = $(".js-generate-board-btn--easy"),
+            $generateBoardBtnMedium = $(".js-generate-board-btn--medium"),
+            $generateBoardBtnHard = $(".js-generate-board-btn--hard"),
+            $generateBoardBtnVeryHard = $(".js-generate-board-btn--very-hard"),
+            
+            $solveStepBtn = $(".js-solve-step-btn"),
+            $solveAllBtn = $(".js-solve-all-btn"),
+            $clearBoardBtn = $(".js-clear-board-btn"),
+            
+            mySudokuJS = $("#sudoku").sudokuJS({
+            difficulty: "very hard"
+            //change state of our candidate showing checkbox on change in sudokuJS
+            ,candidateShowToggleFn : function(showing){
+            $candidateToggle.prop("checked", showing);
+            }
+            });
+        
+            $solveStepBtn.on("click", mySudokuJS.solveStep);
+            $solveAllBtn.on("click", mySudokuJS.solveAll);
+            $clearBoardBtn.on("click", mySudokuJS.clearBoard);
+        
+            $generateBoardBtnEasy.on("click", function(){
+            mySudokuJS.generateBoard("easy");
+            });
+            $generateBoardBtnMedium.on("click", function(){
+            mySudokuJS.generateBoard("medium");
+            });
+            $generateBoardBtnHard.on("click", function(){
+            mySudokuJS.generateBoard("hard");
+            });
+            $generateBoardBtnVeryHard.on("click", function(){
+            mySudokuJS.generateBoard("very hard");
+            });
+        
+            $candidateToggle.on("change", function(){
+            if($candidateToggle.is(":checked"))
+            mySudokuJS.showCandidates();
+            else
+            mySudokuJS.hideCandidates();
+            });
+            $candidateToggle.trigger("change");
+        </script>
+</body>
+        
+</html>
