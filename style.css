@@ -113,12 +113,21 @@ body {
     text-decoration: none;
 }
 
+.apps a.active {
+    color: #fff;
+    text-decoration: none;
+}
+
 .apps .active:hover {
     color: #1E90FF;
     transform: scale(1.5);
     transition: all 600ms ease-in-out;
 }
 
+.apps a.active:hover {
+    color: #fff;
+    text-decoration: none;
+}
 .apps .icon .active:hover {
     color: #1E90FF;
     transform: scale(1.5);
